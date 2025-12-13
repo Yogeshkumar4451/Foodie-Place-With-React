@@ -1,0 +1,27 @@
+{
+  "name": "react-project-Foodie-Place",
+  "version": "1.0.0",
+
+  "scripts": {
+  "start": "parcel serve index.html --open",
+  "dev": "parcel serve index.html --open",
+  "build": "parcel build index.html"
+},
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-router-dom": "^6.30.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "parcel": "^2.16.3",
+    "prettier": "^3.7.4"
+  }
+}
