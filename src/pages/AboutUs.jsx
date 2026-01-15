@@ -63,7 +63,7 @@ const AboutUs = () => {
       <div className="bg-orange-200 min-h-screen pt-32 pb-20">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* HERO SECTION */}
+        
         <section className="text-center mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             About The Foodie Place
@@ -73,7 +73,7 @@ const AboutUs = () => {
           </p>
         </section>
 
-        {/* ACCORDION SECTIONS */}
+    
         <section className="space-y-6 mb-20">
           {sections.map((section, index) => (
             <Accordion
@@ -89,7 +89,7 @@ const AboutUs = () => {
           ))}
         </section>
 
-        {/* STATS (STATIC, NO ACCORDION) */}
+        
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:-translate-y-2 transition">
             <h3 className="text-3xl font-bold text-orange-500 mb-2">500+</h3>
