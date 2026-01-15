@@ -10,14 +10,14 @@ const RestoMenuPage = () => {
 
   const [openIndex, setOpenIndex] = useState(null);
 
-  // ✅ FIX 1: Proper guard
+  
   if (!menu || !menu.length || !info) return <ShimmerCard />;
 
   return (
     <div className="bg-orange-200 min-h-screen">
       <div className="max-w-5xl mx-auto px-6 pt-24 pb-20">
 
-        {/* 🍽️ RESTAURANT INFO */}
+      
         <div className="mb-10 bg-white rounded-xl shadow-sm border border-orange-100 p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">
             {info.name}
@@ -31,7 +31,7 @@ const RestoMenuPage = () => {
           </div>
         </div>
 
-        {/* 📋 MENU ACCORDIONS */}
+    // Accordion Part
         <div className="space-y-4">
           {menu.map((category, index) => (
             <Accordion
@@ -42,14 +42,14 @@ const RestoMenuPage = () => {
                 setOpenIndex(openIndex === index ? null : index)
               }
             >
-              {/* MENU ITEMS = children */}
+            
               <div className="space-y-6">
                 {category.items?.map((item) => (
                   <div
                     key={item.id}
                     className="flex justify-between gap-6 border-b pb-4 last:border-none"
                   >
-                    {/* LEFT */}
+                
                     <div className="flex-1 space-y-1">
                       <h4 className="font-semibold text-gray-800">
                         {item.name}
@@ -66,7 +66,7 @@ const RestoMenuPage = () => {
                       )}
                     </div>
 
-                    {/* RIGHT */}
+                
                     {item.imageId && (
                       <img
                         className="w-28 h-24 object-cover rounded-lg"
