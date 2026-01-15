@@ -1,21 +1,22 @@
 {
   "name": "react-project-Foodie-Place",
   "version": "1.0.0",
-
   "scripts": {
-  "start": "parcel serve index.html --open",
-  "dev": "parcel serve index.html --open",
-  "build": "parcel build index.html"
-},
-
+    "start": "parcel serve index.html --open",
+    "dev": "parcel serve index.html --open",
+    "build": "parcel build index.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
-    "react-router-dom": "^6.30.2"
+    "@tailwindcss/postcss": "^4.1.18",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^6.30.2",
+    "react-server-dom-parcel": "^19.2.3",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "eslint": "^9.39.1",

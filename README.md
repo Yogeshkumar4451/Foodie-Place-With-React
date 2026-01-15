@@ -1,156 +1,107 @@
-# Foodie Place - Dynamic React Food Listing Website
+# 🍔 Foodie Place – React Food Ordering App
 
-## Project Description
-
-**Foodie Place Is A Fully Functional, Dynamic Food Listing Website Built Using React.**  
-It Fetches Restaurant Data Directly From The Swiggy API Using Fetch Calls.  
-
-To Handle CORS Issues During Development, **We Are Using The Proxy URL `"https://proxy.corsfix.com/?"`** Instead Of The Chrome Extension.  
-The Website Is Interactive, User-Friendly, And Dynamically Updates The UI Based On User Actions.
+Foodie Place is a modern React-based food ordering application inspired by real-world platforms like Swiggy and Zomato.  
+The project focuses on **clean component architecture**, **reusability**, and **real-world React patterns**.
 
 ---
 
-## Features
+## 🚀 Features
 
-- **API Data Fetching:** Real-Time Restaurant Data Fetched From Swiggy API.  
-- **Shimmer UI Loading Effect:** Displays Loading Shimmer Cards While Fetching Data.  
-- **Login/Logout Button:** Toggle Functionality Using `useState` To Demonstrate Dynamic Re-Rendering.  
-- **Dynamic Search Bar:** Filters Restaurants Based On User Input And Allows Resetting To Original Data.  
-- **Top Rated Filter Button:** Filters Restaurants With Average Rating Above 4 Using Mock Data.  
-- **Reusable Components:** Each Restaurant Card And UI Element Is Modular And Reusable.  
-- **Conditional Rendering:** Displays Loading, Filtered, Or Full Data Based On State.
-
----
-
-## React Router v6 Features
-
-- **createBrowserRouter:** Creates A Browser Router Instance.  
-- **RouterProvider:** Provides Router Context To The App.  
-- **Outlet:** Renders Child Routes In The Parent Layout.  
-- **useRouteError:** Handles Errors For Unmatched Routes Or Failed Navigation.
+- 🏪 Restaurant listing and dynamic menu pages
+- 📋 Reusable Accordion component (used across multiple pages)
+- 🧠 Proper separation of Data Layer and UI Layer
+- ⚡ Custom Hooks for data fetching
+- ⏳ Shimmer UI for loading states
+- 🔐 Login / User state management using **Context API**
+- 🔁 Toggle Login / Logout UI without prop drilling
+- 📱 Responsive UI with Tailwind CSS
 
 ---
 
-## React Concepts Covered
+## 🔐 Authentication UI (Context API)
 
-- Functional Components & JSX  
-- `useState` For State Management  
-- `useEffect` For API Calls And Side Effects  
-- Conditional Rendering (If-Else & Ternary)  
-- Dynamic Rendering Using `.map()`  
-- Component Reusability  
-- State-Driven UI Updates & Re-Rendering  
-- Virtual DOM Understanding  
-- React Router v6: Nested Routing, Dynamic Routes, Error Handling
+The application uses **React Context API** to manage user login state globally.
 
----
+### How It Works:
+- Default user state: **Guest**
+- Clicking the **Login** button updates the global context
+- Username changes to **Yogesh Sahu**
+- Clicking again resets state back to **Guest**
+- Navbar updates instantly without prop drilling
 
-## Project Structure
-
-/FoodiePlace
-├─ /src
-│ ├─ /Assets/images
-│ │ └─ Logo.js
-│ ├─ /Component
-│ │ ├─ AboutUs.jsx
-│ │ ├─ Body.jsx
-│ │ ├─ ContactUs.jsx
-│ │ ├─ Error.jsx
-│ │ ├─ Footer.jsx
-│ │ ├─ Header.jsx
-│ │ ├─ RestoMenuPage.jsx
-│ │ ├─ Service.jsx
-│ │ └─ ShimmerUI.jsx
-│ ├─ /Utils
-│ │ ├─ Carditem-Template.jsx
-│ │ └─ MockData.jsx
-│ ├─ App.jsx
-│ ├─ style.css
-│ └─ index.html
-├─ package.json
-├─ package-lock.json
-└─ dist
-
-yaml
-Copy code
+### Why Context API?
+- Avoids passing props through multiple components
+- Centralized user state management
+- Cleaner and scalable architecture
 
 ---
 
-## Components & Features
+## 🧩 Component Architecture
 
-### App & Routing
+### 1️⃣ Accordion (Reusable UI Component)
 
-**File:** `App.jsx`  
+- Fully generic and reusable
+- Controlled by parent components
+- Uses `children` as a slot to render dynamic content
+- Used in:
+  - About Us page
+  - Restaurant Menu page
 
-- Main Layout Component With Header, Footer, And Dynamic Outlet For Rendering Child Routes.  
-- Routing Implemented Using React Router v6:  
-  - **createBrowserRouter:** Browser Router Instance Creation  
-  - **RouterProvider:** Provides Router To App  
-  - **Outlet:** Renders Nested Routes Inside Layout  
-  - **useRouteError:** Handles Errors In Routing (`Error.jsx`)  
-- Routes Included:  
-  - `/` → Home (`Body.jsx`)  
-  - `/AboutUs` → About Page  
-  - `/Service` → Services Page  
-  - `/ContactUs` → Contact Page  
-  - `/Restaurants/:resId` → Dynamic Restaurant Menu Page (`RestoMenuPage.jsx`)  
-- Error Handling For Unmatched Paths (`Error.jsx`)  
+**Props:**
+- `title` – Header text
+- `isOpen` – Controls open/close state
+- `onToggle` – Callback for toggle action
+- `children` – Dynamic content slot
 
 ---
 
-### RestoMenuPage Component
+### 2️⃣ AboutUs Page (Data + Control Layer)
 
-**File:** `RestoMenuPage.jsx`  
-
-- Fetches Restaurant Menu Dynamically Using `resId` From Route Parameters (`useParams`).  
-- Displays Restaurant Info (Name, Rating, Cost, Category, Description, Image).  
-- Conditional Rendering With ShimmerUI While Data Is Loading.  
+- Provides static content data
+- Controls accordion open/close state
+- Passes content to Accordion via props
 
 ---
 
-### ContactUs Component
+### 3️⃣ Restaurant Menu Page (Advanced Data Layer)
 
-**File:** `ContactUs.jsx`  
-
-- Simple Contact Form Capturing Name, Email, Message.  
-- Form State Handled With `useState` And Submission Logged To Console.  
-
----
-
-### AboutUs Component
-
-**File:** `AboutUs.jsx`  
-
-- Static Page Displaying Project/Company Information.  
+- Fetches live restaurant menu data using a custom hook
+- Handles asynchronous API states safely
+- Reuses the same Accordion component for menu categories
+- Demonstrates defensive rendering and clean state management
 
 ---
 
-### Service Component
+### 4️⃣ Navbar (Global UI Using Context)
 
-**File:** `Service.jsx`  
-
-- Static Page Listing Services Offered By The Website.  
-
----
-
-### Utilities
-
-- **Carditem-Template.jsx:** Template For Rendering Restaurant Cards.  
-- **MockData.jsx:** Mock Data For Initial Display And Testing Filtering.  
+- Consumes user context
+- Dynamically updates Login / Username text
+- Demonstrates real-world usage of Context API
 
 ---
 
-## How It Works
+## 🧠 Key Concepts Used
 
-1. **Page Load:** `Body.jsx` Fetches Restaurant Data From Swiggy API.  
-2. **Loading State:** ShimmerUI Shows Loading Placeholders.  
-3. **Data Display:** Fetched Data Stored In State And Rendered Dynamically.  
-4. **Filtering:** Search Bar Filters Restaurants, Top Rated Button Shows Restaurants With Rating > 4.  
-5. **Login/Logout:** Demonstrates State-Based Dynamic Re-Rendering.  
+- Controlled Components
+- Props & `children`
+- React Context API
+- Custom Hooks
+- Conditional Rendering
+- Defensive Rendering for async data
+- Separation of Concerns
+- Reusable UI patterns
 
 ---
 
-## Routing
+## 🛠️ Tech Stack
 
-- Nested Routes Rendered Via `Outlet`.  
-- `useRouteError` Handles Errors For Unmatched Routes.
+- **React**
+- **React Router**
+- **Context API**
+- **Tailwind CSS**
+- **JavaScript (ES6+)**
+
+---
+
+## 📂 Project Structure (Simplified)
+
