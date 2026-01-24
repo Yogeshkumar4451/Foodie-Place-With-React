@@ -1,107 +1,129 @@
-# 🍔 Foodie Place – React Food Ordering App
+🍔 Foodie Place – React Food Ordering App
 
-Foodie Place is a modern React-based food ordering application inspired by real-world platforms like Swiggy and Zomato.  
-The project focuses on **clean component architecture**, **reusability**, and **real-world React patterns**.
+Foodie Place is a modern React-based food ordering application inspired by real-world platforms like Swiggy and Zomato.
+The project focuses on clean component architecture, reusability, and real-world React patterns.
 
----
+🚀 Features
 
-## 🚀 Features
+🏪 Restaurant listing and dynamic menu pages
 
-- 🏪 Restaurant listing and dynamic menu pages
-- 📋 Reusable Accordion component (used across multiple pages)
-- 🧠 Proper separation of Data Layer and UI Layer
-- ⚡ Custom Hooks for data fetching
-- ⏳ Shimmer UI for loading states
-- 🔐 Login / User state management using **Context API**
-- 🔁 Toggle Login / Logout UI without prop drilling
-- 📱 Responsive UI with Tailwind CSS
+📋 Reusable Accordion component (used across multiple pages)
 
----
+🧠 Proper separation of Data Layer and UI Layer
 
-## 🔐 Authentication UI (Context API)
+⚡ Custom Hooks for data fetching
 
-The application uses **React Context API** to manage user login state globally.
+⏳ Shimmer UI for loading states
 
-### How It Works:
-- Default user state: **Guest**
-- Clicking the **Login** button updates the global context
-- Username changes to **Yogesh Sahu**
-- Clicking again resets state back to **Guest**
-- Navbar updates instantly without prop drilling
+🔐 Global user authentication state using Context API
 
-### Why Context API?
-- Avoids passing props through multiple components
-- Centralized user state management
-- Cleaner and scalable architecture
+🔁 Login / Logout toggle without prop drilling
 
----
+🧭 Centralized user state shared across Navbar and pages
 
-## 🧩 Component Architecture
+📱 Responsive UI with Tailwind CSS
 
-### 1️⃣ Accordion (Reusable UI Component)
+🔐 Authentication UI (Context API)
 
-- Fully generic and reusable
-- Controlled by parent components
-- Uses `children` as a slot to render dynamic content
-- Used in:
-  - About Us page
-  - Restaurant Menu page
+The application uses React Context API to manage user login state globally.
 
-**Props:**
-- `title` – Header text
-- `isOpen` – Controls open/close state
-- `onToggle` – Callback for toggle action
-- `children` – Dynamic content slot
+How It Works:
 
----
+Default user state: Guest
 
-### 2️⃣ AboutUs Page (Data + Control Layer)
+Clicking the Login button updates the global context
 
-- Provides static content data
-- Controls accordion open/close state
-- Passes content to Accordion via props
+Username changes to Yogesh Sahu
 
----
+Clicking again resets state back to Guest
 
-### 3️⃣ Restaurant Menu Page (Advanced Data Layer)
+Navbar updates instantly without prop drilling
 
-- Fetches live restaurant menu data using a custom hook
-- Handles asynchronous API states safely
-- Reuses the same Accordion component for menu categories
-- Demonstrates defensive rendering and clean state management
+Why Context API?
 
----
+Avoids passing props through multiple components
 
-### 4️⃣ Navbar (Global UI Using Context)
+Centralized user state management
 
-- Consumes user context
-- Dynamically updates Login / Username text
-- Demonstrates real-world usage of Context API
+Cleaner and scalable architecture
 
----
+🧩 Component Architecture
+1️⃣ Accordion (Reusable UI Component)
 
-## 🧠 Key Concepts Used
+Fully generic and reusable
 
-- Controlled Components
-- Props & `children`
-- React Context API
-- Custom Hooks
-- Conditional Rendering
-- Defensive Rendering for async data
-- Separation of Concerns
-- Reusable UI patterns
+Controlled by parent components
 
----
+Uses children as a slot to render dynamic content
 
-## 🛠️ Tech Stack
+Used in:
 
-- **React**
-- **React Router**
-- **Context API**
-- **Tailwind CSS**
-- **JavaScript (ES6+)**
+About Us page
 
----
+Restaurant Menu page
 
-## 📂 Project Structure (Simplified)
+Props:
 
+title – Header text
+
+isOpen – Controls open/close state
+
+onToggle – Callback for toggle action
+
+children – Dynamic content slot
+
+2️⃣ AboutUs Page (Data + Control Layer)
+
+Provides static content data
+
+Controls accordion open/close state
+
+Passes content to Accordion via props
+
+3️⃣ Restaurant Menu Page (Advanced Data Layer)
+
+Fetches live restaurant menu data using a custom hook
+
+Handles asynchronous API states safely
+
+Reuses the same Accordion component for menu categories
+
+Demonstrates defensive rendering and clean state management
+
+4️⃣ Navbar (Global UI Using Context API)
+
+Consumes user authentication context
+
+Dynamically updates Login / Username text
+
+Demonstrates real-world global state usage
+
+🧠 Key Concepts Used
+
+React Context API (Global State Management)
+
+Controlled Components
+
+Props & children
+
+Custom Hooks
+
+Conditional Rendering
+
+Defensive Rendering for async data
+
+Separation of Concerns
+
+Reusable UI patterns
+
+🛠️ Tech Stack
+
+React
+
+React Router
+
+Context API
+
+Tailwind CSS
+
+JavaScript (ES6+)
